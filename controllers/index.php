@@ -2,15 +2,30 @@
   class index extends Controller
   {
       
-      public function __construct()
+      public $perfil;
+      function __construct()
       {
-          parent::__construct();
-      }  
+           parent::__construct();
+            if(session::exist())
+              {
+                 $this->perfil = session::getValue('perfil');
+              }else{
+                $this->sitio();
+              }
+      }   
+     
+     public function sitio(){
+      header("Location:".URL."web/index");
+     }
 
+       
      public function index()
      {
-      $this->view->render('index');
+      $this->view->render('index/index');
      }
+
+     
+
 
       public function login()      
       {    

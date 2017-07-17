@@ -221,7 +221,14 @@
                     </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding active">
-                      <a class="waves-effect waves-grey active" href="<?php echo URL?>index/index"><i class="material-icons">folder</i>Archivos</a>
+                      <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">folder</i>Archivos<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                      <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#">Carpeta1</a></li>
+                                <li><a href="#">Carpeta2</a></li>
+                                <li><a href="#">Carpeta3</a></li>
+                            </ul>
+                        </div>
                     </li>                                                                              
                 </ul>
                 <div class="footer">

@@ -2,7 +2,7 @@
 // Se incluye las constantes 
 require "config.php";
 // si la url no tiene nada , por defecto sera //http://localhost/proyecto/index/login
-$url = (isset($_GET['url'])) ? $_GET["url"] : "index/index";
+$url = (isset($_GET['url'])) ? $_GET["url"] : "web/index";
 // se usa la funcion de php explode() para separar la url con slash 
 $url = explode("/", $url);
 // se define la url como Controllers/Method/Params
@@ -32,11 +32,21 @@ if(isset($url[2])){ if($url[2] != ''){$params = $url[2];}}
               }else{
               $controller->{$method}();                    
               }                            
-          }else{ header("location:".URL."index"); 
-               }
+          }else{
+
+           header("location:".URL."web"); 
+
+          }
+          
       }else{
-       $controller->login(); 
-           }
-  }else{ header("location:".URL."index"); 
-       }
+
+       $controller->index(); 
+
+      }
+
+  }else{
+
+   header("location:".URL."web"); 
+  }
+
 ?>     
