@@ -85,8 +85,9 @@ class Conect{
           $this->my = null;
         }
         catch(PDOException $e){
-           $jsondata['tipo'] = $e->getMessage();
-           echo json_encode($jsondata); 
+           // $jsondata['tipo'] = $e->getMessage();
+           // echo json_encode($jsondata); 
+          echo $e->getMessage();
            die();       
         } 
   }

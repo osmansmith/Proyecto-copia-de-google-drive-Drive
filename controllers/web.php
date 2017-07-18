@@ -36,6 +36,7 @@
 
      public function login()      
      {    
+      
       $this->view->render('login');
      }      
       

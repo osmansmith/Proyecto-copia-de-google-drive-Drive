@@ -14,13 +14,13 @@
               }
       }   
 
-     public function modulo()
+     public function index()
      {
           try
           {
             $this->view->render('perfil/'.$this->perfil.'/add/head_');
             $this->view->render('perfil/'.$this->perfil.'/add/header_');
-            $this->view->render('perfil/'.$this->perfil.'/modulo');
+            $this->view->render('modulo/archivo/index');
             $this->view->render('perfil/'.$this->perfil.'/add/js_');
             $this->view->render('perfil/'.$this->perfil.'/add/footer_');
           }

@@ -11,30 +11,36 @@ class user_model extends Model
     {
 
 
-        $key = 0;
-        $sql = "SELECT * FROM usuario WHERE usuario_usuario = ? and pass_usuario = ? ";
+        
+        $sql = "SELECT * FROM usuario,perfil WHERE nombre_usuario = ? and pass_usuario = ? ";
 
         $this->base->consulta($sql,[$nombre,$pass]);
 
         if($arr = $this->base->extraer_registro())
         {
-            session::setValue('id_user',$arr['id_usuario']);
-            session::setValue('usuario',utf8_encode(ucwords($arr['usuario_usuario'])));
+            session::setValue('id_user',$arr['id_usuario']);            
             session::setValue('nombre',utf8_encode(ucwords($arr['nombre_usuario'])));
-            session::setValue('perfil',utf8_encode(ucwords($arr['perfil_usuario'])));
-                       
-              $key = 1;          
+            session::setValue('perfil',$arr['nombre_perfil']);                                        
         }
+       
 
-        if($key == 1)
-        {
-           $jsondata['tipo'] = 1;
-            echo json_encode($jsondata);
-
-        }else{
-            $jsondata['tipo'] = 'error';
-            echo json_encode($jsondata);
+         try{
+            if(session::getValue("perfil") !="")
+            {
+                $perfil = session::getValue("perfil");
+                header("Location:".URL.$perfil."/index");
+            }
         }
+        catch(PDOException $e){
+           // $jsondata['tipo'] = $e->getMessage();
+           // echo json_encode($jsondata); 
+          echo $e->getMessage();
+           die();       
+        }    
+        
+
+
+
     }
    
    

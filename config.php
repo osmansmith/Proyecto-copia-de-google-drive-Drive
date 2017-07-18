@@ -10,6 +10,6 @@
   define('DB_HOST', 'localhost');  
   define('DB_USER', 'root');
   define('DB_PASS', '');  
-  define('DB_NAME', 'adminpro');
+  define('DB_NAME', 'pymcorp_db');
 
 ?>

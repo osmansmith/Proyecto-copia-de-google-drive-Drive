@@ -1,43 +1,52 @@
- <div class="ui container fluid">
+ <!-- Contenido de la pagina -->
+            <main class="mn-inner inner-active-sidebar">
+                <div>
+                <ul id='dropdown_files' class='dropdown-content'>
+                            <li><a href="#carpeta" class="modal-trigger"><i class="material-icons">create_new_folder</i>Carpeta Nueva..</a></li>
+                            <li class="divider"></li>                            
+                            <li><a href="#!"><i class="material-icons">file_upload</i>Subir Archivo..</a></li>
+                          </ul>
+                <header id="menu_archivos ">
+                    
+                    <nav class="indigo">
+                       <div class="nav-wrapper">
+                       <!-- <span class="title">Manejador de Archivos</span> -->
+                         <ul class="left active">
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown_files">Mi Unidad</a></li>
+                         </ul> 
+                                                
+                           <div class="right hide-on-small-only">
+                            <a href="#carpeta" class="modal-trigger"><i class="material-icons" style="color:#fff; float: left; margin-right: 5px;">create_new_folder</i>Carpeta Nueva..</a>                            
+                           </div>
 
-    <div class="ui inverted tiny menu">
- <div class="header item">
-    Admin Pro
-  </div>
-  <div class="right menu">
-    <div class="item">
-    	<a href="<?php echo URL?>index/salir" class="ui red button">Salir</a>
-    </div>
-  </div>
-</div>
+                            <div class="right hide-on-med-and-up">
+                            <a href="#carpeta" class="modal-trigger"><i class="material-icons" style="color:#fff; float: left; margin-right: 5px;">create_new_folder</i></a>                            
+                           </div>
 
- 	<div class="ui grid">
+                           <div class="right hide-on-small-only" style="padding-right: 15px;">
+                            <a href="#"><i class="material-icons" style="color:#fff; float: left; margin-right: 5px;">file_upload</i>Subir Archivo..</a>                            
+                           </div>  
+                           <div class="right hide-on-med-and-up" style="padding-right: 15px;">
+                            <a href="#"><i class="material-icons" style="color:#fff; float: left; margin-right: 5px;">file_upload</i></a>                            
+                           </div>  
 
- 		<div class="seven wide mobile seven wide tablet three wide computer column">
- 			
-			<div class="zenlogic-sidebar fixed top">			  			 
-			  <div class="ui green accordion menu vertical inverted">
-			  	<a class="item active" href="#">Menu Principal</a>
-			  	<a class="item" href="<?php echo URL?>index">Escritorio<i class="home icon"></i></a>
+                       </div>
+                        
+                    </nav>
 
-			  	 <div class="item">			    
-			    	<a class="active title"><i class="dropdown icon"></i>Usuarios</a>
-
-			    	<div class="content">
-			    		<div class="vertical menu">
-					      	<a class="item" href="#"><i class="user icon"></i>Listado</a>
-					      	<a class="item" href="#"><i class="plus icon"></i>Agregar usuario</a>
-				      	</div>
-			    	</div>
-			     </div>
-			    <a class="item" href="<?php echo URL?>administrador/modulo" >Modulos<i class="custom icon"></i></a>
-			    
-			  </div>			  			 
-			</div>
-       
- 		</div>
-
- 		<div class="nine wide mobile nine wide tablet thirteen wide computer column main">
+          <!--====== MODAL ======-->
+            <div id="carpeta" class="modal">
+                <div class="modal-content">
+                    <h4>Carpeta Nueva</h4>
+                    <input type="text" id="nomCarpeta" placeholder="Ej: CarpetaUno">
+                </div>
+                <div class="modal-footer">
+                    <a class="modal-action modal-close waves-effect btn left">Cerrar</a>
+                    <a href="#!" class="waves-effect waves-green btn" id="crearCarpeta">Crear</a>
+                </div>
+            </div>
+            <!--====== FIN MODAL ======-->
+                </header>
        
  		 
  			 

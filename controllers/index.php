@@ -10,7 +10,8 @@
               {
                  $this->perfil = session::getValue('perfil');
               }else{
-                $this->sitio();
+                $this->salir();
+                // echo "<script>console.log(".session::getValue('perfil').")</script>";
               }
       }   
      
@@ -21,27 +22,16 @@
        
      public function index()
      {
-      $this->view->render('index/index');
+      
+      $this->view->render('index');
      }
 
-     
-
-
-      public function login()      
-      {    
-          // if(session::exist())
-          // {
-          //   header('location:'.URL.'acceso/index');
-          // }else{
-          //   $this->view->render('login');
-          // }                       
-          $this->view->render('login');
-      }  
+             
           
       public function salir()
       {
           session::destroy();
-          $this->index();
+          header('location:'.URL.'web/login');
       }    
       
 

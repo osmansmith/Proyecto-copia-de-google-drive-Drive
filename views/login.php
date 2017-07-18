@@ -3,7 +3,7 @@
     <head>
         
         <!-- Title -->
-        <title>Alpha | Responsive Admin Dashboard Template</title>
+        <title>Pymcorp</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">                
@@ -77,18 +77,18 @@
                                   <div class="card-content ">
                                       <span class="card-title">Iniciar Sesión</span>
                                        <div class="row">
-                                           <form class="col s12">
+                                  <form class="col s12" id="form_log" method="POST" action="<?php echo URL?>user/entrar">
                                                <div class="input-field col s12">
-                                                   <input id="email" type="email" class="validate">
-                                                   <label for="email">Correo</label>
+                                                   <input name="user" type="text" class="validate" required>
+                                                   <label for="text">Correo</label>
                                                </div>
                                                <div class="input-field col s12">
-                                                   <input id="password" type="password" class="validate">
+                                                   <input name="pass" type="password" class="validate" required>
                                                    <label for="password">Contraseña</label>
                                                </div>
                                                <div class="col s12 right-align m-t-sm">
                                                    <!-- <a href="sign-up.html" class="waves-effect waves-grey btn-flat">sign up</a> -->
-                                                   <a href="<?php echo URL?>index/index" class="waves-effect waves-light btn teal">Ingresar</a>
+                                                   <button id="btn-form" type="submit" class="waves-effect waves-light btn teal">Ingresar</button>
                                                </div>
                                            </form>
                                       </div>

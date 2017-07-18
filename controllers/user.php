@@ -16,8 +16,9 @@ class user extends Controller
             $pass = $_POST['pass'];
             $this->model->acceder($nombre,$pass);
         }else{
-             $jsondata['tipo'] = 'error de datos';
-			       echo json_encode($jsondata);
+          
+            $this->login();
+            
         }
     }
 
@@ -43,28 +44,15 @@ class user extends Controller
         }
     }
     
-
-    function salir()
-    {
-        session::destroy();
-        header('location:'.URL.'index');
-    }
-    function login()
+   
+    function login()    
       {
-         session::destroy();
-        header('location:'.URL.'index');
+       
+         // session::destroy();        
+        header('location:'.URL.'web/login');
+         
       }
-   
-   
+      
 }
-
-
-
-
-
-
-
-
-
 
 ?>
