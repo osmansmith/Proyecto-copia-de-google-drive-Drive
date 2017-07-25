@@ -22,6 +22,15 @@
         <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+         
+            .side-nav .collapsible-body li.active a, .side-nav.fixed .collapsible-body li.active a {
+                color: #3f51b5;
+            }
+            .side-nav {                
+                width: 250px;
+            }
+        </style>
         
     </head>
     <body>
@@ -114,12 +123,9 @@
                     </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding active">
-                      <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">folder</i>Archivos<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                      <a class="collapsible-header waves-effect waves-grey colap1" id="archivos"><i class="material-icons carp1">folder</i><i class="material-icons carp1" style="display: none;">folder_open</i>Archivos<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                       <div class="collapsible-body">
-                            <ul>
-                                <li><a href="#">Carpeta1</a></li>
-                                <li><a href="#">Carpeta2</a></li>
-                                <li><a href="#">Carpeta3</a></li>
+                            <ul id="menuCarpeta" class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">                                
                             </ul>
                         </div>
                     </li>                                                                              

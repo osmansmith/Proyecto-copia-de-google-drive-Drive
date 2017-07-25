@@ -5,59 +5,28 @@ class Conect{
     public $my,$sql,$sql2,$sql3;
     function __construct()
     {
-		$this->servidor = DB_HOST;
-		$this->usuario = DB_USER;
-		$this->pass = DB_PASS;
-		$this->base_datos = DB_NAME;
-    $this->charset = 'utf8';
-		$this->conectar();
-	}
+  		$this->servidor = DB_HOST;
+  		$this->usuario = DB_USER;
+  		$this->pass = DB_PASS;
+  		$this->base_datos = DB_NAME;
+      $this->charset = 'utf8';
+  		$this->conectar();
+	  }
+
     function conectar()
     {          
     
         try {
-              // $dsn = "mysql:host=$this->servidor;dbname=$this->base_datos;charset=$this->charset";
-              $dsn = "mysql:host=$this->servidor;charset=$this->charset";
-              $this->my = new PDO($dsn, $this->usuario, $this->pass);              
-              //creamos la base de datos si no existe
-              $crear_db = $this->my->prepare('CREATE DATABASE IF NOT EXISTS '.$this->base_datos.' COLLATE utf8_spanish_ci'); 
-              $crear_db->execute();
               
-              //decimos que queremos usar la base de datos que acabamos de crear
-              if($crear_db):
-              $use_db = $this->my->prepare('USE '.$this->base_datos);             
-              $use_db->execute();
-              endif;
-              
-              //si se ha creado la base de datos y estamos en uso de ella creamos las tablas
-              $cantidad = $this->my->prepare("SELECT * FROM usuario");
-              $cantidad->execute();
-              $total = $cantidad->rowCount();
-              if($total==0)
-              {            
-              //creamos la tabla usuarios
-              $crear_tb_users = $this->my->prepare('
-                      CREATE TABLE IF NOT EXISTS usuario (
-                      id_usuario int(11) NOT NULL AUTO_INCREMENT,
-                      nombre_usuario varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-                      usuario_usuario varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-                      pass_usuario varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-                      perfil_usuario varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-                      PRIMARY KEY (id_usuario)
-                        )');              
-              $crear_tb_users->execute();
-              // creamos datos iniciales en la tabla
-              $crear_datos = $this->my->prepare("INSERT INTO usuario(nombre_usuario,usuario_usuario,pass_usuario,perfil_usuario)
-                                                 VALUES('admin','admin','admin','administrador')");
-              $crear_datos->execute();
-              
-              }
-              // $this->my = null;
+              $dsn = "mysql:host=$this->servidor;dbname=$this->base_datos;charset=$this->charset";
+              $this->my = new PDO($dsn, $this->usuario, $this->pass);   
+              $this->my->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           } catch (PDOException $e) {
               print "¡Error!: " . $e->getMessage() . "<br/>";
               die();
           }
     }
+
     // -------EJECUTA UNA CONSULTA A LA BASE DE DATOS
 	public function consulta($query,$datos)
     {
@@ -68,8 +37,8 @@ class Conect{
         }else{
           $this->sql->execute(); 
         }
-        
-        $this->my = null;
+              
+
       }
       catch(PDOException $e){
          $jsondata['tipo'] = $e->getMessage();
@@ -77,19 +46,22 @@ class Conect{
          die();       
       }  		  		
 	}
-  public function consulta2($query)
+  public function consulta2($query2,$datos2)
     {
      try{
-          $this->sql2 = $this->my->prepare($query);
-          $this->sql2->execute($datos); 
-          $this->my = null;
+        $this->sql2 = $this->my->prepare($query2);
+        if (!empty($datos2)) {
+          $this->sql2->execute($datos2); 
+        }else{
+          $this->sql2->execute(); 
         }
-        catch(PDOException $e){
-           // $jsondata['tipo'] = $e->getMessage();
-           // echo json_encode($jsondata); 
-          echo $e->getMessage();
-           die();       
-        } 
+               
+      }
+      catch(PDOException $e){
+         $jsondata['tipo'] = $e->getMessage();
+         echo json_encode($jsondata); 
+         die();       
+      }  
   }
 	public function extraer_registro()
     {

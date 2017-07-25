@@ -9,8 +9,6 @@ class user_model extends Model
 
     public function acceder($nombre,$pass)
     {
-
-
         
         $sql = "SELECT * FROM usuario,perfil WHERE nombre_usuario = ? and pass_usuario = ? ";
 
@@ -21,6 +19,8 @@ class user_model extends Model
             session::setValue('id_user',$arr['id_usuario']);            
             session::setValue('nombre',utf8_encode(ucwords($arr['nombre_usuario'])));
             session::setValue('perfil',$arr['nombre_perfil']);                                        
+        }else{
+            header("Location:".URL."web/login");
         }
        
 
@@ -38,8 +38,6 @@ class user_model extends Model
            die();       
         }    
         
-
-
 
     }
    

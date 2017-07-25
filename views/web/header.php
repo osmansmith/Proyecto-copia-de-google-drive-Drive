@@ -52,7 +52,7 @@
 
                         <!-- Logo -->
                         <div class="navbar-logo">
-                            <a class="navbar-logo-wrap" href="<?php echo URL?>index/index">
+                            <a class="navbar-logo-wrap" href="<?php echo URL?>web">
                                 <img class="navbar-logo-img" src="<?php echo URL?>public/pagina/img/logo.jpg" alt="Acidus Logo">
                             </a>
                         </div>
@@ -77,15 +77,7 @@
                                         Quienes Somos
                                     </a>
                                 </li>
-                                <!-- End About -->
-
-                                <!-- Work -->
-                                <!-- <li class="nav-item">
-                                    <a class="nav-item-child" href="work.html">
-                                        Trabajos
-                                    </a>
-                                </li> -->
-                                <!-- End Work -->
+                                <!-- End About -->                                
 
                                 <!-- Contact -->
                                 <li class="nav-item">
@@ -94,6 +86,14 @@
                                     </a>
                                 </li>
                                 <!-- End Contact -->
+
+                                <!-- Login -->
+                                <li class="nav-item">
+                                    <a class="nav-item-child" href="<?php echo URL?>web/login">
+                                        Login
+                                    </a>
+                                </li>
+                                <!-- End Login -->
                             </ul>
                         </div>
                     </div>

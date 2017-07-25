@@ -28,24 +28,31 @@
           {
               print $e->getMessage();
           }
-
-            
      }
+
      public function listar_modulo()
      {
         $this->view->render('perfil/'.$this->perfil.'/funciones/listar_modulo');
      }
 
-      public function login()      
-      {    
-          if(session::exist())
-          {
-            header('location:'.URL.'acceso/index');
-          }else{
-            $this->view->render('login');
-          }                       
-          
-      }                 
+     public function login()      
+     {    
+        if(session::exist())
+        {
+          header('location:'.URL.'acceso/index');
+        }else{
+          $this->view->render('login');
+        }                       
+        
+     }                 
+
+     public function salir()
+     {
+          session::destroy();
+          header('location:'.URL.'web/index');
+     } 
+
+     
 
   }
 ?>

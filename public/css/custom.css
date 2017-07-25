@@ -32,3 +32,19 @@ nav .nav-wrapper i {
 }
   
 }
+
+ #menuCarpeta .nav-drop-icon2 {
+                float: right!important;
+                -webkit-transition: all .3s;
+                -moz-transition: all .3s;
+                -o-transition: all .3s;
+                transition: all .3s;
+            }
+
+              #menuCarpeta li.active .nav-drop-icon2 {
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-3);
+            }
