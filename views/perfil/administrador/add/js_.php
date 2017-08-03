@@ -1,4 +1,4 @@
- </div>                
+ <!-- </div>                 -->
             </main>
 
             <div class="page-footer">
@@ -30,7 +30,7 @@
         <script src="<?php echo URL?>public/plugins/waypoints/jquery.waypoints.min.js"></script>
         <script src="<?php echo URL?>public/plugins/counter-up-master/jquery.counterup.min.js"></script>
         <script src="<?php echo URL?>public/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-        <script src="<?php echo URL?>public/plugins/chart.js/chart.min.js"></script>
+        <!-- <script src="<?php echo URL?>public/plugins/chart.js/chart.min.js"></script> -->
         <script src="<?php echo URL?>public/plugins/flot/jquery.flot.min.js"></script>
         <script src="<?php echo URL?>public/plugins/flot/jquery.flot.time.min.js"></script>
         <script src="<?php echo URL?>public/plugins/flot/jquery.flot.symbol.min.js"></script>
@@ -38,14 +38,25 @@
         <script src="<?php echo URL?>public/plugins/flot/jquery.flot.tooltip.min.js"></script>
         <script src="<?php echo URL?>public/plugins/curvedlines/curvedLines.js"></script>
         <script src="<?php echo URL?>public/plugins/peity/jquery.peity.min.js"></script>
-        <script src="<?php echo URL?>public/js/alpha.min.js"></script>
-        <script src="<?php echo URL?>public/js/pages/dashboard.js"></script>
-        <!-- <script src="<?php echo URL?>public/js/pages/ui-modals.js"></script> -->
-        
-        <script>
+        <script src="<?php echo URL?>public/js/alpha.min.js"></script>               
+        <script>  
 
-        $("#crearCarpeta").addClass("disabled");
-        // $("#crearCarpeta").attr("disabled","true");
+        // interaccion directa
+
+             // mostrar el menu de carpetas
+          $.ajax({
+            url : "<?php echo URL?>archivo/menuCarpeta",
+            success : function(result){
+              $("#menuCarpeta").html(result);
+            }
+          });
+
+
+         // fin interaccion directa
+
+          // boton de crear carpeta deshabilitado
+          $("#crearCarpeta").addClass("disabled");  
+
           $('.dropdown-button').dropdown({
               inDuration: 300,
               outDuration: 225,
@@ -58,7 +69,7 @@
             }
           );
 
-          // Validación de campo vacio
+          // Validación de campo vacio en crear carpeta
            $("#nomCarpeta").keyup(function(){
               var carpeta = $("#nomCarpeta").val();
                // alert(carpeta);
@@ -70,7 +81,7 @@
               }
                 
               });
-          
+          // Crear una Carpeta
            $("#crearCarpeta").click(function()
            {
               var carpeta = $("#nomCarpeta").val();
@@ -97,12 +108,8 @@
                           Materialize.toast('Carpeta '+carpeta+' Creada con exito!',4000);
                           $("#nomCarpeta").val('');
                           $("#crearCarpeta").addClass("disabled");
-                          $.ajax({
-                            url : "<?php echo URL?>archivo/mostrarCarpeta",
-                            success : function(result){
-                              $("#menuCarpeta").html(result);
-                            }
-                          });
+                          window.location="<?php echo URL?>administrador/index";
+                          
                           break;
                       default:
                            Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
@@ -112,14 +119,8 @@
               }
             });                          
            });
-
-          $.ajax({
-            url : "<?php echo URL?>archivo/mostrarCarpeta",
-            success : function(result){
-              $("#menuCarpeta").html(result);
-            }
-          });
-
+          
+          // Crear subcarpetas  
           $("#crearSubcarpeta").click(function(){
             var subcarpeta = $("#nomSub").val();
             var carpeta = $("#selSub").val();
@@ -150,7 +151,7 @@
                             $("#selSub").val('');
                          
                             $.ajax({
-                              url : "<?php echo URL?>archivo/mostrarCarpeta",
+                              url : "<?php echo URL?>archivo/menuCarpeta",
                               success : function(result){
                                 $("#menuCarpeta").html(result);
                               }
@@ -168,14 +169,15 @@
                Materialize.toast('Campos vacios!, Porfavor escriba nombre de subcarpeta y/o nombre de carpeta',4000);
             }
             return false;
-          });
-
-
+          });           
+          // Crear un archivo
           $("#crearArchivo").click(function(){
 
               var formData = new FormData();
               formData.append("folder", $("#selArch").val());
               formData.append("archivo", archivo1.files[0]);
+              var files = formData.get('archivo');
+                 
 
               $.ajax({
                   url : "<?php echo URL?>archivo/registrarArchivo",                
@@ -199,15 +201,11 @@
                           $("#archivo1").val('');
                           break;
                       case 0:
-                          Materialize.toast('Archivo '+carpeta+' Creado con exito!',4000);
-                         $("#selArch").val('');
+                          Materialize.toast('Archivo '+files.name+' Creado con exito!',4000);
+                          $("#selArch").val('');
                           $("#archivo1").val('');
-                          $.ajax({
-                            url : "<?php echo URL?>archivo/mostrarCarpeta",
-                            success : function(result){
-                              $("#menuCarpeta").html(result);
-                            }
-                          });
+                           var url = jQuery(location).attr('href');
+                           window.location=url;
                           break;
                       default:
                            Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
@@ -216,17 +214,244 @@
                   }
               }
             });
+              return false;
+          });
+          // Crear un subarchivo
+          $("#crearSubarchivo").click(function(){
+            // alert(this);
+
+              var formData2 = new FormData();
+              var files=document.getElementById('archivo2').files[0];
+
+
+              // alert(files);
+              formData2.append("carpeta", $("#selCarpeta").val());
+              formData2.append("subcarpeta", $("#selSubcarpeta").val());
+              formData2.append("archivo2", files);
+               var newfile = formData2.get('archivo2');
+              console.log(newfile.name);       //filename
+              console.log(newfile.size); 
+              console.log(formData2.get('carpeta')); 
+              console.log(formData2.get('subcarpeta')); 
+              // console.log($("#selCarpeta").val()+ " - " +$("#selSubcarpeta").val()+ " - "+files);
+              $.ajax({
+                  url : "<?php echo URL?>archivo/registrarSubarchivo",                
+                  data: formData2,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  type: 'POST',
+                  dataType : "json",
+                success : function(datos){
+               
+                switch(datos.envio) {
+                      case 2:
+                          Materialize.toast('No se han enviado Datos!, Porfavor escriba un nombre de subarchivo',4000);
+                          $("#selCarpeta").val('');
+                          $("#selSubcarpeta").val('');
+                          $("#subarchivo").val('');
+                          break;
+                      case 1:
+                          Materialize.toast('Subarchivo existente!, Porfavor Subarchivo el archivo he intentelo nuevamente',4000);
+                          $("#selCarpeta").val('');
+                          $("#selSubcarpeta").val('');
+                          $("#subarchivo").val('');
+                          break;
+                      case 0:
+                          Materialize.toast('Subarchivo '+newfile.name+' Creado con exito!',4000);
+                          $("#selCarpeta").val('');
+                          $("#selSubcarpeta").val('');
+                          $("#subarchivo").val('');  
+                          var url = jQuery(location).attr('href');
+                           window.location=url;                       
+                          break;
+                      default:
+                           Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
+                          $("#selCarpeta").val('');
+                          $("#selSubcarpeta").val('');
+                          $("#subarchivo").val('');
+                  }
+              }
+            });
+              return false;
+          });
+          // Eliminar Carpeta
+          $("#eliminarCarpeta").click(function(){
+            var folderEraser = $("#borrarCarpeta").val();
+            // alert(folderEraser);
+            if(folderEraser != "")
+            {
+              $.ajax({
+                url : "<?php echo URL?>archivo/eliminarCarpeta",
+                type : "POST",
+                data : "borrar="+folderEraser,
+                dataType : "json",
+                success : function(datos){
+                 
+                  switch(datos.estado) {
+                        case 2:
+                            Materialize.toast('No se han enviado Datos!, Porfavor escoga un nombre de carpeta',4000);
+                            $("#borrarCarpeta").val('');
+                            break;  
+                        case 1:
+                            Materialize.toast('Capeta inexistente!, carpeta borrada o no encontrada en el sistema',4000);
+                            $("#borrarCarpeta").val('');
+                            break;                      
+                        case 0:
+                            Materialize.toast('Carpeta Eliminada con exito!',4000);
+                            $("#borrarCarpeta").val('');                         
+                              window.location="<?php echo URL?>administrador/index";
+                            break;
+                        default:
+                             Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
+                            $("#borrarCarpeta").val('');                            
+                    }
+                }
+              }); 
+            }else{
+               Materialize.toast('Campos vacios!, Porfavor escriba nombre de subcarpeta y/o nombre de carpeta',4000);
+            }
+            return false;
+          });           
+
+          // Eliminar Subcarpeta
+          $("#eliminarSubcarpeta").click(function(){
+            var folder    = $("#borrarCarpeta2").val();
+            var subfolder = $("#selSubcarpeta2").val();
+            // alert(folderEraser);
+            if(folder != "" && subfolder !== "")
+            {
+              $.ajax({
+                url : "<?php echo URL?>archivo/eliminarSubcarpeta",
+                type : "POST",
+                data : "borrarfolder="+folder+"&borrarsubfolder="+subfolder,
+                dataType : "json",
+                success : function(datos){
+                 
+                  switch(datos.estado) {
+                        case 2:
+                            Materialize.toast('No se han enviado Datos!, Porfavor escoga un nombre de carpeta y subcarpeta',4000);
+                            $("#borrarCarpeta").val('');
+                            break;  
+                        case 1:
+                            Materialize.toast('Subcapeta inexistente!, Subcapeta borrada o no encontrada en el sistema',4000);
+                            $("#borrarCarpeta").val('');
+                            break;                      
+                        case 0:
+                            Materialize.toast('Subcapeta Eliminada con exito!',4000);
+                            $("#borrarCarpeta").val('');                         
+                              window.location="<?php echo URL?>administrador/index";
+                            break;
+                        default:
+                             Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
+                            $("#borrarCarpeta").val('');                            
+                    }
+                }
+              }); 
+            }else{
+               Materialize.toast('Campos vacios!, Porfavor escriba nombre de subcarpeta y/o nombre de carpeta',4000);
+            }
+            return false;
           });
 
+          // Mostrar subcarpetas al elegir una carpeta
+          $("#selCarpeta").change(function(){
+              var subcarpetas = $(this).val();
+              $.ajax({
+                  url : "<?php echo URL?>archivo/mostrarSubcarpeta",                
+                  data: 'subcarpetas='+subcarpetas,                  
+                  type: 'POST',                  
+                success : function(datos){
+               $('#selSubcarpeta').html(datos);
+           
+              }
+            });
+            return false;
+          });
 
+          // Mostrar subcarpetas al elegir una carpeta en borrar carpetas
+          $("#borrarCarpeta2").change(function(){
+              var subcarpetas = $(this).val();
+              $.ajax({
+                  url : "<?php echo URL?>archivo/mostrarSubcarpeta",                
+                  data: 'subcarpetas='+subcarpetas,                  
+                  type: 'POST',                  
+                success : function(datos){
+               $('#selSubcarpeta2').html(datos);
+           
+              }
+            });
+            return false;
+          });
+                
+         
+          // cambiar el icono de la carpeta del menu
           $("#archivos").click(function(){
             $(".carp1").toggle();
+          });         
+
+          // Eliminar archivos de una carpeta
+          $(".eliminar-dir").click(function(){
+            var val = $(this).attr('id');
+            var directorio = $('.dir').attr("id");
+            // alert(val + " - "+directorio);
+            $.ajax({
+              url : "<?php echo URL?>archivo/eliminarArchivo",
+              data : "ide="+val+"&ruta="+directorio+"&opc=carpeta",
+              type : "POST",
+              dataType : "json",
+              success : function(data){
+                  switch(data.estado) {
+                        case 2:
+                            Materialize.toast('No se han enviado Datos!, algo salio mal',4000);                            
+                            break;                          
+                        case 1:
+                            Materialize.toast('Archivo Eliminada con exito!',4000);
+                            var url = jQuery(location).attr('href');
+                            window.location=url;
+                            break;
+                        case 0:
+                            Materialize.toast('No se pudo eliminar el archivo!, algo salio mal',4000);                            
+                            break; 
+                        default:
+                             Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
+                    }
+              }
+            });
+             // return false;
           });
 
-          $("#menuCarpeta #subarchivos").click(function(){
-            $(".carp2").toggle();
-          });
+           // Eliminar archivos de una subcarpeta
+          $(".eliminar-subdir").click(function(){
+            var val = $(this).attr('id');
+            var directorio = $('.subdir').attr("id");
+            // alert(val + " - "+directorio);
+             $.ajax({
+              url : "<?php echo URL?>archivo/eliminarArchivo",
+              data : "ide="+val+"&ruta="+directorio+"&opc=subcarpeta",
+              type : "POST",
+              dataType : "json",
+              success : function(data){
+                 switch(data.estado) {
+                        case 2:
+                            Materialize.toast('No se han enviado Datos!, algo salio mal',4000);                            
+                            break;                          
+                        case 1:
+                            Materialize.toast('Subarchivo Eliminada con exito!',4000);
+                            var url = jQuery(location).attr('href');
+                            window.location=url;
+                            break;
+                        case 0:
+                            Materialize.toast('No se pudo eliminar el archivo!, algo salio mal',4000);                            
+                            break; 
+                        default:
+                             Materialize.toast('A ocurrido un problema!'+datos.envio,2000);
+                    }
 
+              }
+            });
+            // return false;
+          });
 
 
      

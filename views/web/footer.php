@@ -112,12 +112,12 @@
         <script src="<?php echo URL?>public/pagina/vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo URL?>public/pagina/vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
         <script src="<?php echo URL?>public/pagina/vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
-         <script src="https://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
-        <script src="<?php echo URL?>public/pagina/vendor/google-map.js" type="text/javascript"></script>
+         <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script> -->
+        <!-- <script src="<?php echo URL?>public/pagina/vendor/google-map.js" type="text/javascript"></script> -->
 
         
         
-        <script src="<?php echo URL?>public/pagina/js/components/google-map.min.js" type="text/javascript"></script>
+        <!-- <script src="<?php echo URL?>public/pagina/js/components/google-map.min.js" type="text/javascript"></script> -->
 
 
         <!-- PAGE LEVEL SCRIPTS -->

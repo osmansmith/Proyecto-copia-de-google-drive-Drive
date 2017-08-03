@@ -6,7 +6,7 @@ nav .nav-wrapper i {
 	color:#67696A;
 }
 #menu_archivos{
-	/*min-width: 1100px;*/
+	/*min-height: 10px;*/
 }
 
 .material-design-hamburger__layer {
@@ -15,18 +15,44 @@ nav .nav-wrapper i {
 .indi{
     color:#3f51b5 !important;
 }
+@media only screen and (max-width: 525px) {
+    .side-nav ul ul li a, .side-nav.fixed ul ul li a {    
+    padding: 11.5px 4px 11.5px 30px!important;
+}
+.side-nav ul li a i.material-icons {
+    margin: 0 5px 0 0 !important;
+}
 
-@media only screen and (max-width: 600px) {
+}
+@media only screen and (max-width: 601px) {
    .material-design-hamburger__layer {
     background: #000 !important;    
+}
+    .mn-content.fixed-sidebar .mn-inner {
+        padding-left: 0px;
+        width: 100%;                
 } 
+
+.side-nav ul ul li a, .side-nav.fixed ul ul li a {    
+    padding: 11.5px 4px 11.5px 30px!important;
 }
-@media only screen and (min-width: 600px) {
+.side-nav ul li a i.material-icons {
+    margin: 0 5px 0 0 !important;
+}
+
+}
+@media (min-width: 600px) {
    .material-design-hamburger__layer {
     background: #000 !important;    
 }
+/*.side-nav ul ul li a, .side-nav.fixed ul ul li a {    
+    padding: 11.5px 4px 11.5px 30px!important;
 }
-@media only screen and (min-width: 992px) {
+.side-nav ul li a i.material-icons {
+    margin: 0 5px 0 0;
+}*/
+}
+@media (min-width: 992px) {
     .material-design-hamburger__layer {
     background: #000 !important;    
 }
@@ -48,3 +74,18 @@ nav .nav-wrapper i {
                 -o-transform: rotate(90deg);
                 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-3);
             }
+.side-nav ul ul li a, .side-nav.fixed ul ul li a {
+    /*border-left: 2px solid transparent;*/
+    /*color: rgba(0,0,0,.9);*/
+    /*display: block;*/
+    /*font-weight: 400;*/
+    /*letter-spacing: .1px;*/
+    padding: 11.5px 4px 11.5px 40px!important;
+    /*white-space: nowrap;*/
+    /*margin: 0!important;*/
+}
+.side-nav ul li a i.material-icons {
+    /*line-height: inherit;*/
+    margin: 0 10px 0 0;
+    /*width: auto;*/
+}

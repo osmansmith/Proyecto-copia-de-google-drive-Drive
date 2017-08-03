@@ -20,10 +20,10 @@
            $this->base = new Conect();
       }
       public function e64($base){
-       echo	base64_encode(base64_encode(base64_encode($base)));
+       return	base64_encode(base64_encode(base64_encode($base)));
       } 
        public function d64($base){       	
-       echo base64_decode(base64_decode(base64_decode($base)));
+       return base64_decode(base64_decode(base64_decode($base)));
       }            
   } 
 ?>
