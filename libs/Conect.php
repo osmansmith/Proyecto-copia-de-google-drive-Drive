@@ -105,6 +105,21 @@ class Conect{
   		
 	  }
 
+    public function total2()
+    {
+      try{
+        $cantidad2 = $this->sql2->rowCount();
+        return $cantidad2;
+      }
+      catch(PDOException $e)
+      {
+         $jsondata['tipo'] = $e->getMessage();
+         echo json_encode($jsondata); 
+         die();
+      }
+      
+    }
+
     // CONSULTAS DINAMICAS SIMPLES
     // CONSULTAS I = Insert , S = select , U = Update , D = delete ;
     public function ingreso($tipo , $tabla , $datos)

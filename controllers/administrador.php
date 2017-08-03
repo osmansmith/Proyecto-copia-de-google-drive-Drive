@@ -28,7 +28,7 @@
           {
               print $e->getMessage();
           }
-     }
+     }     
 
      public function listar_modulo()
      {
