@@ -4,6 +4,7 @@
                 
                   <ul id='dropdown_files' class='dropdown-content'>
                               <li><a href="#carpeta" class="modal-trigger"><i class="material-icons">create_new_folder</i>Carpeta Nueva..</a></li>
+                               <li><a href="#eliminar" class="modal-trigger"><i class="material-icons">cancel</i>Eliminar Carpeta..</a></li>
                               <li class="divider"></li>                            
                               <li><a href="#archivo" class="modal-trigger"><i class="material-icons">file_upload</i>Subir Archivo..</a></li>
                   </ul>

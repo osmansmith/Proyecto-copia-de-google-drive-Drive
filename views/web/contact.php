@@ -3,64 +3,56 @@ $head = new web();
 $head->getHead()?>
 
         <!--========== PAGE LAYOUT ==========-->
-        <!-- Google Map -->
-        <div id="map" class="map height-300"></div>
 
         <!-- Contact List -->
-        <div class="section-seperator">
+
+        <div class="section-seperator ">
+
+           
             <div class="content-md container">
+             <div class="row">
+                 <div class="col-sm-12">
+                     <h1>Contactos Comerciales</h1>
+                 </div>
+             </div>
+              <hr class="pad-10">
                 <div class="row">
                     <!-- Contact List -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="#">Arica</a> <span class="text-uppercase margin-l-20">Operaciones</span></h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-                        <ul class="list-unstyled contact-list">
-                            <li><i class="margin-r-10 color-base icon-call-out"></i> 1 012 3456 7890</li>
-                            <li><i class="margin-r-10 color-base icon-envelope"></i> operaciones@pymcorp.com</li>
-                        </ul>
-                    </div>
-                    <!-- End Contact List -->
-
-                    <!-- Contact List -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="#">Antofagasta</a> <span class="text-uppercase margin-l-20">Oficina central</span></h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-                        <ul class="list-unstyled contact-list">
-                            <li><i class="margin-r-10 color-base icon-call-out"></i> 44 77 3456 7890</li>
-                            <li><i class="margin-r-10 color-base icon-envelope"></i> central@pymcorp.com</li>
-                        </ul>
-                    </div>
-                    <!-- End Contact List -->
-
-                    <!-- Contact List -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="#">Calama</a> <span class="text-uppercase margin-l-20">Recursos Humanos</span></h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-                        <ul class="list-unstyled contact-list">
-                            <li><i class="margin-r-10 color-base icon-call-out"></i> 50 012 456 7890</li>
-                            <li><i class="margin-r-10 color-base icon-envelope"></i> recursosh@pymcorp.com</li>
-                        </ul>
-                    </div>
-                    <!-- End Contact List -->
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
-        <!-- End Contact List -->
-
-        <!-- Comment -->
-        <div class="section-seperator">
-            <div class="content-md container">
-                <div class="row margin-b-40">
                     <div class="col-sm-6">
-                        <h2>Contactenos</h2>
-                        <p>Escribanos sus dudas en el siguiente formulario, y le responderemos a la brevedad sus dudas.</p>
+                        <div class="row">
+                    <div class="col-sm-12 pad-10">                                            
+                        <ul class="list-unstyled contact-list">
+                            <li><i class="margin-r-10 color-base icon-direction"></i> Pedro Aguirre Cerda N°2210, Calama </li>
+                            <li><i class="margin-r-10 color-base icon-envelope"></i> Administracion@pymcorp.cl </li>
+                        </ul>
+                    </div> 
+                            <div class="col-sm-12 pad-10">
+                        <h4>Moisés Nina Vega <span class="text-uppercase margin-l-20">Gerente Operacional </span></h4>
+                        <ul class="list-unstyled contact-list">
+                            <li><i class="margin-r-10 color-base icon-call-out"></i> 974777697 </li>
+                            <li><i class="margin-r-10 color-base icon-envelope"></i> Moises.ninav@pymcop.cl </li>
+                        </ul>
+                    </div>                   
+                     
+                     <div class="col-sm-12 pad-10">
+                        <h4>Moisés Nina Cossío <span class="text-uppercase margin-l-20">Coordinador contratos y servicios </span></h4>                       
+                        <ul class="list-unstyled contact-list">
+                            <li><i class="margin-r-10 color-base icon-call-out"></i> 976581107 </li>
+                            <li><i class="margin-r-10 color-base icon-envelope"></i> Moises.ninac@pymcorp.cl </li>
+                        </ul>
+                    </div>                  
+                    <div class="col-sm-12 pad-10">
+                        <h4>Macarena Nina Cossío <span class="text-uppercase margin-l-20">Representante Legal</span></h4>
+                        <ul class="list-unstyled contact-list">
+                            <li><i class="margin-r-10 color-base icon-call-out"></i> 944364099 </li>
+                            <li><i class="margin-r-10 color-base icon-envelope"></i> Macarena.nina@pymcorp.cl</li>
+                        </ul>
                     </div>
-                </div>
-                <!--// end row -->
-
-                <div class="row">
-                    <div class="col-md-5 col-sm-7">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                    <h2>Contactenos</h2>
+                        <p>Escribanos sus dudas en el siguiente formulario, y le responderemos a la brevedad sus dudas.</p>
                         <form>
                             <div class="margin-b-10">
                                 <input type="text" class="form-control" placeholder="Nombre">
@@ -77,11 +69,14 @@ $head->getHead()?>
                             <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Enviar</button>
                         </form>
                     </div>
+                    
+                   
                 </div>
                 <!--// end row -->
             </div>
         </div>
-        <!-- End Comment -->
+        <!-- End Contact List -->
+       
         <!--========== END PAGE LAYOUT ==========-->
 
      <?php $head->getFooter();?>

@@ -30,7 +30,12 @@
 			    max-height: 100%;
 			    vertical-align: middle;
 			}
-            
+            .pad-20{
+                padding: 20px 20px
+            }
+            .pad-10{
+                padding: 10px 10px
+            }
         </style>
     </head>
     <!-- END HEAD -->

@@ -10,8 +10,8 @@ $head->getHead()?>
         </div>
         <!-- End Slider -->
 
-        <!-- Features -->
-        <div class="section-seperator">
+        <!-- Area de Noticias -->
+       <!--  <div class="section-seperator">
             <div class="content-md container">
                 <div class="row">
                     <div class="col-sm-4 sm-margin-b-50">
@@ -35,10 +35,9 @@ $head->getHead()?>
                             <a class="link" href="#">Leer Más</a>
                         </div>
                     </div>
-                </div>
-                <!--// end row -->
+                </div>             
             </div>
-        </div>
+        </div> -->
         <!-- End Features -->
 
         <!-- About -->
@@ -53,9 +52,9 @@ $head->getHead()?>
             <div class="row">
                 <div class="col-sm-7 sm-margin-b-50">
                     <div class="margin-b-30">
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut laboret dolore adipiscing elit sed tempor incididunt ut laboret dolore magna aliqua. Ut enimet minim veniam magna aliqua. Ut enim minim veniam exercitation laboris ut siad consequat siad minim enum esqudiat dolore.</p>
+                        <p>P&M CORP, es una empresa cuya actividad principal es la gestión de servicios a las empresas del área de la construcción y minería, entregando servicios de movimiento de tierra, Obras civiles, reciclaje de materiales industriales, limpieza industrial, transporte de materiales.</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut laboret tempor incididunt dolore magna consequat siad minim aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut laboret dolore magna aliqua. Ut enim minim veniam exercitation laboris ut siad consequat siad minim enum esqudiat dolore.</p>
+                    <p>P&M CORP, inicia sus actividad en respuesta a la alta demanda de servicios que surgen en la Comuna de Calama, producto de la creciente actividad en la zona, su primeros clientes fueron los pequeños contratistas quienes requerían de movimientos menores y abastecimiento de áridos y bases estabilizadas, luego el movimiento de obras mayores donde involucraban grandes movimientos de tierra.</p>
                 </div>
                 <div class="col-sm-4 col-sm-offset-1">
                     <img class="img-responsive" src="<?php echo URL?>public/pagina/img/logo.jpg" alt="Our Office">
